@@ -1,0 +1,19 @@
+--To Start Zookeeper Server
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+-- To Start Apache Kafka Server
+C:\kafka>.\bin\windows\kafka-server-start.bat .\config\server\properties 
+
+
+--To Create Kafka Topic
+.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic SecondTopic
+
+--To list topic running on zookeeper server
+.\bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
+
+--To Create or produce  messages in Kafka Topic
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic firstTopic
+
+
+--To Receive or consumer messsage for Kafka Topic
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic firstTopic --from-beginning
